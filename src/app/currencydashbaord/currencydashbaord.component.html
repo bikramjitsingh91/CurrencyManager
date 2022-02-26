@@ -1,0 +1,21 @@
+
+<div>
+    <p>Dashboard</p>
+    <button (click)="onSave()">Fetch</button>
+    <!-- <button mdbBtn (click)="onSave()" type="button" color="primary" mdbWavesEffect>Fetch Currency</button> -->
+    <!-- <div>baseCurrency : {{baseCurrency}}</div> -->
+    <div *ngIf="showCurrInfo">
+        <div>baseCurrency : {{baseCurrency}}</div>
+        <hr>
+        <div>
+            <p>
+                EUR: {{eur}} |
+                CAD: {{cad}} |
+                JPY: {{jpy}} |
+                GBP: {{gbp}} |
+                BGN: {{bgn}} 
+            </p>
+
+        </div>
+    </div>
+</div>
