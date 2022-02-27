@@ -11,8 +11,14 @@ export class CurrencyService {
   }
 
   currencyURL = 'https://api.vatcomply.com/rates?base=USD';
+  //saveCurrencyURL = 'http://localhost:8082/saveCurrencyInfo';
+  saveCurrencyURL = 'http://currency-bs-app.ca-central-1.elasticbeanstalk.com/saveCurrencyInfo';
 
   getCurrencyInfo() {
     return this.http.get(this.currencyURL);
+  }
+
+  saveCurrencyInfo(currencyInfo: any){
+    return this.http.post(this.saveCurrencyURL,currencyInfo);
   }
 }
