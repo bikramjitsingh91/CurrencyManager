@@ -6,7 +6,12 @@ import { AppComponent } from './app.component';
 import { CurrencydashbaordComponent } from './currencydashbaord/currencydashbaord.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { MatTableModule } from '@angular/material/table';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations' 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatNativeDateModule} from '@angular/material/core';
+// import {MatSelectModule} from '@angular/material';
+// import { MatSelectModule} from '@angular/material';
+import { MatSelectModule } from '@angular/material/select'
+// import { MatOptionModule } from '@angular/material'
 
 @NgModule({
   declarations: [
@@ -18,7 +23,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     AppRoutingModule,
     HttpClientModule,
     MatTableModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    MatSelectModule,
+    // MatOptionModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]

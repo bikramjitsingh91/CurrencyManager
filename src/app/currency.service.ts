@@ -10,15 +10,28 @@ export class CurrencyService {
 
   }
 
-  currencyURL = 'https://api.vatcomply.com/rates?base=USD';
+  currencyURLWithBase = 'https://api.vatcomply.com/rates?base=USD';
+  currencyURL = 'https://api.vatcomply.com/rates';
   //saveCurrencyURL = 'http://localhost:8082/saveCurrencyInfo';
-  saveCurrencyURL = 'http://currency-bs-app.ca-central-1.elasticbeanstalk.com/saveCurrencyInfo';
+  currencyServiceUrl = 'http://currency-bs-app.ca-central-1.elasticbeanstalk.com';
 
   getCurrencyInfo() {
-    return this.http.get(this.currencyURL);
+    return this.http.get(this.currencyURLWithBase);
+  }
+
+  getCurrencyInfoByBase(base : String) {
+    return this.http.get(this.currencyURL + '?base=' + base);
   }
 
   saveCurrencyInfo(currencyInfo: any){
-    return this.http.post(this.saveCurrencyURL,currencyInfo);
+    return this.http.post(this.currencyServiceUrl + "/saveCurrencyInfo",currencyInfo);
+  }
+
+  getCurrencyInfoFromDB(){
+    return this.http.get(this.currencyServiceUrl + '/getCurrencyInfo');
+  }
+
+  clearCurrencyInfoFromDB(){
+    return this.http.delete(this.currencyServiceUrl + '/clearCurrencyStore');
   }
 }
